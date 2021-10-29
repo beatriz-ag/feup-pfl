@@ -1,0 +1,5 @@
+Como correr atom
+ir ao diretorio
+stack ghci
+:l nomedoficheiro
+

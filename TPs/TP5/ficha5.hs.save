@@ -1,0 +1,35 @@
+^x
+^X
+2q
+import Stack
+
+-- 1
+parentAux :: String -> Stack Char -> Bool
+parentAux [] stk = isEmpty stk
+parentAux (x:xs) stk
+          | x == '(' || x == '[' || x == '{' = parentAux xs (push x stk)
+          | x == ']' = not (isEmpty stk) && top stk == '[' && parentAux xs (pop stk)
+          | x == ')' = not (isEmpty stk) && top stk == '(' && parentAux xs (pop stk)
+          | x == '}' = not (isEmpty stk) && top stk == '{' && parentAux xs (pop stk)
+
+parent :: String -> Bool
+parent str = parentAux str empty
+
+
+-- 2
+calc :: Stack Float -> String -> Stack Float
+calc stk (x:xs)
+      | x == '+' = push (show (n1 + n2)) && pop stk
+      | x == '*' = push (show (n1 * n2)) && pop stk
+      | x == '-' = push (show (n1 - n2)) && pop stk
+      | x == '/' = push (show (n1 / n2)) && pop stk
+      | otherwise = push x stk
+      where n1 = read(top stk)::Double
+            n2 = read(top(pop stk))::Double
+^X
+
+
+
+
+
+

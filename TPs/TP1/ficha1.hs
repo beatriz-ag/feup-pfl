@@ -116,7 +116,7 @@ medianav1 a b c | (a < b) && (b < c) = b
 medianav2 :: Int ->  Int -> Int -> Int
 medianav2 a b c = sum [a,b,c] - mi - ma
                   where ma = max (max a b) (max b c)
-                      mi = min (min a b) (min b c)
+                        mi = min (min a b) (min b c)
 
 -- 1.16
 converte100 :: Int -> String
